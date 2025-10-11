@@ -17,25 +17,32 @@ export default function Experience({ language, darkMode }: ExperienceProps) {
 
   const experiences = [
     {
-      company: 'mfatech',
-      role: t.experience.positions.mfatech.role,
-      period: 'Nov 2024 – Jun 2025',
-      description: t.experience.positions.mfatech.description,
-      color: 'from-purple-200 to-pink-200',
-    },
-    {
-      company: 'Codveda Technologies',
+      company: t.experience.positions.codveda.company,
       role: t.experience.positions.codveda.role,
-      period: 'Aug 2025 - Sep 2025',
+      period: t.experience.positions.codveda.period,
       description: t.experience.positions.codveda.description,
       color: 'from-blue-200 to-cyan-200',
     },
     {
-      company: 'VBT Yazılım A.Ş',
+      company: t.experience.positions.mfatech.company,
+      role: t.experience.positions.mfatech.role,
+      period: t.experience.positions.mfatech.period,
+      description: t.experience.positions.mfatech.description,
+      color: 'from-purple-200 to-pink-200',
+    },
+    {
+      company: t.experience.positions.vbt.company,
       role: t.experience.positions.vbt.role,
-      period: 'Jun 2024 – Aug 2024',
+      period: t.experience.positions.vbt.period,
       description: t.experience.positions.vbt.description,
       color: 'from-green-200 to-teal-200',
+    },
+    {
+      company: t.experience.positions.bt.company,
+      role: t.experience.positions.bt.role,
+      period: t.experience.positions.bt.period,
+      description: t.experience.positions.bt.description,
+      color: 'from-purple-200 to-pink-200',
     },
   ];
 

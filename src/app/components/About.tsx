@@ -38,7 +38,7 @@ export default function About({ language, darkMode }: AboutProps) {
           } shadow-xl hover:shadow-2xl transition-all`}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-3xl" />
-          <p className={`text-lg md:text-xl leading-relaxed relative z-10 ${
+          <p className={`text-lg md:text-lg leading-relaxed relative z-10 ${
             darkMode ? 'text-gray-300' : 'text-gray-700'
           }`}>
             {t.about.text}
