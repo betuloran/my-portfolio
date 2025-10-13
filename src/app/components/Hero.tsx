@@ -121,8 +121,8 @@ export default function Hero({ language, darkMode }: HeroProps) {
         >
           <motion.a
             whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(192, 38, 211, 0.6)" }}
-            href="/cv/BetulOran-CV.pdf"
-            download="BetulOran-CV.pdf"
+            href="/cv/BetulOran_CV.pdf"
+            download="BetulOran_CV.pdf"
             transition={{ duration: 0.15, ease: "easeInOut" }}
             className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:shadow-2xl transition-all flex items-center gap-2"
           >
