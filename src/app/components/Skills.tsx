@@ -27,7 +27,7 @@ export default function Skills({ language, darkMode }: SkillsProps) {
       category: t.skills.categories.styling,
       icon: Palette,
       color: 'text-pink-500',
-      skills: ['Sass/SCSS', 'CSS Grid/Flexbox', 'Bootstrap', 'Tailwind CSS', 'Shadcn/ui', 'Material UI',],
+      skills: ['Sass/SCSS', 'CSS Grid/Flexbox', 'Bootstrap', 'Tailwind CSS', 'Shadcn/ui', 'Material UI'],
     },
     {
       category: t.skills.categories.backend,
@@ -43,7 +43,7 @@ export default function Skills({ language, darkMode }: SkillsProps) {
     },
     {
       category: t.skills.categories.aiml,
-      icon: Bot, // veya Brain, Bot, Cpu
+      icon: Bot,
       color: 'text-cyan-500',
       skills: ['LangChain', 'OpenAI API', 'RAG Systems', 'Vector DB', 'Prompt Engineering', 'LangSmith'],
     },
@@ -53,8 +53,9 @@ export default function Skills({ language, darkMode }: SkillsProps) {
     <section id="skills" ref={ref} className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.h2
+          key={`skills-title-${language}`}
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-purple-400 to-pink-400' : 'from-purple-600 to-pink-600'
             }`}
@@ -67,9 +68,9 @@ export default function Skills({ language, darkMode }: SkillsProps) {
             const Icon = category.icon;
             return (
               <motion.div
-                key={category.category}
+                key={`${category.category}-${language}`}
                 initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`p-6 rounded-2xl backdrop-blur-sm ${darkMode ? 'bg-gray-800/50' : 'bg-white/60'
                   } shadow-lg hover:shadow-xl transition-all hover:scale-105`}
