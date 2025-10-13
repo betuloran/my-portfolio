@@ -25,7 +25,6 @@ export default function Navbar({ language, setLanguage, darkMode, setDarkMode }:
   }, []);
 
   const navLinks = [
-    { href: '#about', label: t.nav.about },
     { href: '#skills', label: t.nav.skills },
     { href: '#experience', label: t.nav.experience },
     { href: '#projects', label: t.nav.projects },

@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -27,7 +26,6 @@ export default function Home() {
         setDarkMode={setDarkMode}
       />
       <Hero language={language} darkMode={darkMode} />
-      <About language={language} darkMode={darkMode} />
       <Skills language={language} darkMode={darkMode} />
       <Experience language={language} darkMode={darkMode} />
       <Projects language={language} darkMode={darkMode} />

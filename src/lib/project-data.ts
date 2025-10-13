@@ -4,6 +4,7 @@ export interface Project {
   descriptionTr: string;
   technologies: string[];
   github?: string;
+  live?: string;
 }
 
 export const projects: Project[] = [
@@ -31,7 +32,7 @@ export const projects: Project[] = [
     title: 'Automation Flow Demo Project',
     descriptionEn: 'Experimented with Microsoft Power Automate and Power Apps to create a simple workflow automating task submissions from a SharePoint list.',
     descriptionTr: 'SharePoint listesinden görev gönderimlerini otomatikleştiren basit bir iş akışı oluşturmak için Microsoft Power Automate ve Power Apps ile denemeler yapıldı.',
-    technologies: ['Power Apps', 'Power Automate', 'SharePoint', 'Dataverse (basic)'],
+    technologies: ['Power Apps', 'Power Automate', 'SharePoint', 'Dataverse'],
   },
     {
     title: 'Feasta',
@@ -39,6 +40,7 @@ export const projects: Project[] = [
     descriptionTr: 'Kullanıcı kimlik doğrulama, restoran listeleme ve sipariş yönetimi içeren duyarlı bir yemek sipariş platformu. Sorunsuz kullanıcı deneyimi için NextAuth ve Redux Toolkit kullanılarak geliştirildi.',
     technologies: ['React', 'Next.js', 'NextAuth', 'Redux Toolkit', 'TypeScript'],
     github: 'https://github.com/betuloran/feasta-app',
+    live: 'https://feasta-app.vercel.app/', 
   },
   {
     title: 'Pviser',

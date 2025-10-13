@@ -11,11 +11,13 @@ export interface Translations {
   hero: {
     title: string;
     subtitle: string;
-    tagline: string;
   };
   about: {
     title: string;
     text: string;
+    downloadCV: string;
+    viewProjects: string;
+    contactButton: string;
   };
   skills: {
     title: string;
@@ -59,6 +61,7 @@ export interface Translations {
   projects: {
     title: string;
     viewGithub: string;
+    viewLive: string;
   };
   contact: {
     title: string;
@@ -83,11 +86,13 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Frontend Developer | Computer Engineer',
       subtitle: 'Betül Oran',
-      tagline: 'Crafting interactive, scalable, and user-focused web experiences.',
     },
     about: {
       title: 'About Me',
-      text:"Computer Engineering graduate and frontend developer who loves blending creativity with technology. I specialize in building intuitive, scalable interfaces with React and TypeScript. Alongside frontend development, I’m deeply interested in generative AI and how it can transform the way we design, build, and personalize digital experiences. My goal is to create interfaces that are not only functional but also intelligently adaptive and engaging."
+      text: "Computer Engineering graduate and frontend developer who loves blending creativity with technology. I specialize in building intuitive, scalable interfaces with React and TypeScript. Alongside frontend development, I'm deeply interested in generative AI and how it can transform the way we design, build, and personalize digital experiences. My goal is to create interfaces that are not only functional but also intelligently adaptive and engaging.",
+      downloadCV: 'Download CV',
+      viewProjects: 'View Projects',
+      contactButton: 'Contact',
     },
     skills: {
       title: 'Skills & Technologies',
@@ -102,23 +107,23 @@ export const translations: Record<Language, Translations> = {
     experience: {
       title: 'Experience',
       positions: {
-          codveda: {
+        codveda: {
           company: 'Codveda Technologies',
           role: 'Full Stack Developer Intern',
           description: 'Built a comprehensive User Management System using React, TypeScript, and Node.js. Implemented JWT-based authentication with role-based access control and developed RESTful APIs with Express.js and MongoDB.',
           period: 'Jun 2025 – Nov 2025',
         },
-         mfatech: {
+        mfatech: {
           company: 'mfatech',
           role: 'Frontend Developer',
           description: 'Contributed to building a modern corporate workspace application. Developed reusable React components with TypeScript, integrated REST APIs, and participated in Agile development using Scrum methodology.',
-         period: 'Nov 2024 – Jun 2025',
+          period: 'Nov 2024 – Jun 2025',
         },
         vbt: {
           company: 'VBT Software Inc.',
           role: 'Software Engineer Intern',
           description: 'Participated in frontend development and mobile application design projects. Developed user experience-focused solutions and created cross-device compatible solutions using responsive design principles.',
-         period: 'Jun 2024 – Aug 2024',
+          period: 'Jun 2024 – Aug 2024',
         },
         bt: {
           company: 'Simav Municipality IT Department',
@@ -131,13 +136,14 @@ export const translations: Record<Language, Translations> = {
     projects: {
       title: 'Featured Projects',
       viewGithub: 'View on GitHub',
+       viewLive: 'View Live',
     },
-    contact: {
-      title: "Let's Connect!",
-      subtitle: "I'm always excited to collaborate on interesting projects or discuss new opportunities.",
-      email: 'Email',
-      phone: 'Phone',
-    },
+   contact: {
+  title: "Let's Connect!",
+  subtitle: "I'm always excited to collaborate on interesting projects or discuss new opportunities.",
+  email: 'Email',
+  phone: 'Phone',
+},
     footer: {
       text: '© 2025 Betül Oran. Built with Next.js & Tailwind CSS.',
     },
@@ -153,20 +159,22 @@ export const translations: Record<Language, Translations> = {
     hero: {
       title: 'Frontend Geliştirici | Bilgisayar Mühendisi',
       subtitle: 'Betül Oran',
-      tagline: 'Etkileşimli, ölçeklenebilir ve kullanıcı odaklı web deneyimleri oluşturuyorum.',
     },
     about: {
       title: 'Hakkımda',
-      text:"Yaratıcılığı teknolojiyle harmanlamayı seven bilgisayar mühendisliği mezunu ve ön uç geliştirici. React ve TypeScript ile sezgisel, ölçeklenebilir arayüzler oluşturma konusunda uzmanım. Ön uç geliştirmenin yanı sıra, üretken yapay zeka ve bunun dijital deneyimleri tasarlama, oluşturma ve kişiselleştirme yöntemlerimizi nasıl dönüştürebileceği konusunda da derin bir ilgi duyuyorum. Amacım, sadece işlevsel değil, aynı zamanda akıllı bir şekilde uyarlanabilir ve ilgi çekici arayüzler oluşturmak."
+      text: "Yaratıcılığı teknolojiyle harmanlamayı seven bilgisayar mühendisliği mezunu ve ön uç geliştirici. React ve TypeScript ile sezgisel, ölçeklenebilir arayüzler oluşturma konusunda uzmanım. Ön uç geliştirmenin yanı sıra, üretken yapay zeka ve bunun dijital deneyimleri tasarlama, oluşturma ve kişiselleştirme yöntemlerimizi nasıl dönüştürebileceği konusunda da derin bir ilgi duyuyorum. Amacım, sadece işlevsel değil, aynı zamanda akıllı bir şekilde uyarlanabilir ve ilgi çekici arayüzler oluşturmak.",
+      downloadCV: 'CV İndir',
+      viewProjects: 'Projelerim',
+      contactButton: 'İletişim',
     },
     skills: {
       title: 'Yetenekler & Teknolojiler',
       categories: {
-        frontend: 'Frontend',
-        styling: 'Styling',
-        backend: 'Backend',
+        frontend: 'Ön Uç',
+        styling: 'Stil',
+        backend: 'Arka Uç',
         tools: 'Araçlar',
-        aiml: 'AI/ML',
+        aiml: 'Yapay Zeka/ML',
       },
     },
     experience: {
@@ -201,13 +209,14 @@ export const translations: Record<Language, Translations> = {
     projects: {
       title: 'Öne Çıkan Projeler',
       viewGithub: "GitHub'da Görüntüle",
+       viewLive: 'Canlı Görüntüle',
     },
-    contact: {
-      title: 'İletişime Geçelim!',
-      subtitle: 'İlginç projeler üzerinde işbirliği yapmak veya yeni fırsatları tartışmak için her zaman heyecanlıyım.',
-      email: 'E-posta',
-      phone: 'Telefon',
-    },
+   contact: {
+  title: 'İletişime Geçelim!',
+  subtitle: 'İlginç projeler üzerinde işbirliği yapmak veya yeni fırsatları tartışmak için her zaman heyecanlıyım.',
+  email: 'E-posta',
+  phone: 'Telefon',
+},
     footer: {
       text: '© 2025 Betül Oran. Next.js & Tailwind CSS ile oluşturuldu.',
     },
