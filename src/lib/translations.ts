@@ -89,7 +89,7 @@ export const translations: Record<Language, Translations> = {
     },
     about: {
       title: 'About Me',
-      text: "Computer Engineering graduate and frontend developer who loves blending creativity with technology. I specialize in building intuitive, scalable interfaces with React and TypeScript. Alongside frontend development, I'm deeply interested in generative AI and how it can transform the way we design, build, and personalize digital experiences. My goal is to create interfaces that are not only functional but also intelligently adaptive and engaging.",
+      text: "I am a computer engineer and front-end developer who loves blending creativity with technology. I am experienced in creating intuitive, scalable interfaces using React and TypeScript. In addition to front-end development, I have a deep interest in generative AI and how it can transform the way we design, create, and personalize digital experiences. My goal is to create interfaces that are not only functional but also intelligently adaptable and engaging.",
       downloadCV: 'Download CV',
       viewProjects: 'View Projects',
       contactButton: 'Contact',
@@ -162,7 +162,7 @@ export const translations: Record<Language, Translations> = {
     },
     about: {
       title: 'Hakkımda',
-      text: "Yaratıcılığı teknolojiyle harmanlamayı seven bilgisayar mühendisliği mezunu ve ön uç geliştirici. React ve TypeScript ile sezgisel, ölçeklenebilir arayüzler oluşturma konusunda uzmanım. Ön uç geliştirmenin yanı sıra, üretken yapay zeka ve bunun dijital deneyimleri tasarlama, oluşturma ve kişiselleştirme yöntemlerimizi nasıl dönüştürebileceği konusunda da derin bir ilgi duyuyorum. Amacım, sadece işlevsel değil, aynı zamanda akıllı bir şekilde uyarlanabilir ve ilgi çekici arayüzler oluşturmak.",
+      text: 'Yaratıcılığı teknolojiyle harmanlamayı seven bir bilgisayar mühendisi ve ön uç geliştiriciyim. React ve TypeScript ile sezgisel, ölçeklenebilir arayüzler oluşturma konusunda deneyimliyim. Ön uç geliştirmenin yanı sıra, üretken yapay zeka ve bunun dijital deneyimleri tasarlama, oluşturma ve kişiselleştirme yöntemlerimizi nasıl dönüştürebileceği konusunda da derin bir ilgi duyuyorum. Amacım, yalnızca işlevsel değil, aynı zamanda akıllı bir şekilde uyarlanabilir ve ilgi çekici arayüzler oluşturmaktır.',
       downloadCV: 'CV İndir',
       viewProjects: 'Projelerim',
       contactButton: 'İletişim',

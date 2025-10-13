@@ -86,8 +86,8 @@ export default function Hero({ language, darkMode }: HeroProps) {
         >
           {/* Download CV Button */}
           <a
-            href="/cv/Betul_Oran_CV.pdf"
-            download="Betul_Oran_CV.pdf"
+            href="/cv/BetulOran-CV.pdf"
+            download="BetulOran-CV.pdf"
             className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:shadow-2xl hover:scale-105 transition-all flex items-center gap-2"
           >
             <Download className="w-5 h-5" />

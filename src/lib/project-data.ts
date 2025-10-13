@@ -5,6 +5,8 @@ export interface Project {
   technologies: string[];
   github?: string;
   live?: string;
+  inProgress?: boolean;
+
 }
 
 export const projects: Project[] = [
@@ -13,6 +15,7 @@ export const projects: Project[] = [
     descriptionEn: 'The RAG-based chatbot to be developed using a vector database and LangChain is a platform that enables users to engage in intelligent conversations based on documents.',
     descriptionTr: 'Vector database ve LangChain kullanarak geliştirilecek RAG tabanlı chatbot, kullanıcıların dökümanları üzerinden akıllı sohbet edebileceği bir platformdur.',
     technologies: ["LangChain", "OpenAI", "Vector DB", "React", "Next.js"],
+    inProgress: true,
   },
   {
     title: 'User Management System',
@@ -20,13 +23,15 @@ export const projects: Project[] = [
     descriptionTr: 'Kimlik doğrulama sistemi, veritabanı entegrasyonu ve modern UI tasarımı ile full-stack kullanıcı ve içerik yönetim platformu. React frontend ve Node.js backend ile geliştirildi.',
     technologies: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
     github: 'https://github.com/betuloran/fullstack-user-management-app',
+    inProgress: true,
   },
    {
     title: 'Personal Portfolio',
     descriptionEn: 'A modern personal portfolio website was developed to showcase projects and contact information. Built with Next.js and responsive design principles to deliver a fast, user-friendly experience.',
     descriptionTr: 'Kişisel projeleri ve iletişim bilgilerini sergilemek amacıyla modern bir portföy sitesi geliştirildi. Next.js altyapısı ve responsive tasarım ilkeleriyle performanslı, kullanıcı dostu bir arayüz oluşturuldu.',
     technologies: ['React', 'Next.js', 'TypeScript'],
-    github: 'https://github.com/betuloran/my-portfolio',
+     github: 'https://github.com/betuloran/my-portfolio',
+    live: 'https://my-portfolio-sigma-wine-87.vercel.app/',
   },
   {
     title: 'Automation Flow Demo Project',

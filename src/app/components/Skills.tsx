@@ -21,7 +21,7 @@ export default function Skills({ language, darkMode }: SkillsProps) {
       category: t.skills.categories.frontend,
       icon: Code2,
       color: 'text-purple-500',
-      skills: ['React', 'TypeScript', 'React Hook Form', 'Framer Motion', 'React Router', 'Next.js', 'Redux', 'Zustand'],
+      skills: ['React', 'TypeScript', 'React Hook Form', 'Framer Motion', 'React Router', 'Next.js', 'Redux', 'Zustand','Zod'],
     },
     {
       category: t.skills.categories.styling,
@@ -39,7 +39,7 @@ export default function Skills({ language, darkMode }: SkillsProps) {
       category: t.skills.categories.tools,
       icon: GitBranch,
       color: 'text-green-500',
-      skills: ['Git & GitHub', 'VS Code', 'Figma', 'Jira', 'ESLint', 'Postman', 'Vercel/Netlify', 'Notion', 'Slack'],
+      skills: ['Git & GitHub', 'GitLab', 'VS Code', 'Figma', 'Jira', 'ESLint', 'Postman', 'Vercel/Netlify', 'Notion', 'Slack'],
     },
     {
       category: t.skills.categories.aiml,
