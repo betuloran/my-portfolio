@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'; 
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Language, translations } from '@/lib/translations';
@@ -10,11 +10,37 @@ interface ExperienceProps {
   darkMode: boolean;
 }
 
+// YENİ: Ana container için varyantlar
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Kartlar arasında 0.15 saniye gecikme
+    },
+  },
+};
+
+// YENİ: Her bir deneyim kartı için varyantlar (Yaylanarak yana kayma)
+const itemVariants: Variants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring',
+      damping: 10,
+      stiffness: 100,
+    },
+  },
+};
+
 export default function Experience({ language, darkMode }: ExperienceProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const t = translations[language];
 
+  // ... (experiences array'i aynı kalır)
   const experiences = [
     {
       id: 'codveda',
@@ -56,7 +82,7 @@ export default function Experience({ language, darkMode }: ExperienceProps) {
         <motion.h2
           key={`experience-title-${language}`}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}} // Başlık animasyonu göründüğünde başlar
           transition={{ duration: 0.6 }}
           className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-purple-400 to-pink-400' : 'from-purple-600 to-pink-600'
             }`}
@@ -64,17 +90,23 @@ export default function Experience({ language, darkMode }: ExperienceProps) {
           {t.experience.title}
         </motion.h2>
 
-        <div className="space-y-8">
+        {/* KART CONTAINER - SIRALI GİRİŞ */}
+        <motion.div
+          className="space-y-8"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"} // Görünür olduğunda başlat
+          variants={containerVariants}
+        >
           {experiences.map((exp, idx) => (
             <motion.div
               key={`${exp.id}-${language}`}
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              variants={itemVariants} // Yeni yana kayma varyantı
+              whileHover={{ scale: 1.03, boxShadow: darkMode ? "0 10px 30px rgba(0, 0, 0, 0.5)" : "0 10px 30px rgba(0, 0, 0, 0.1)" }} // Hafif büyüme ve gölge hover
               className={`p-6 md:p-8 rounded-3xl backdrop-blur-sm ${darkMode ? 'bg-gray-800/50' : 'bg-white/60'
-                } shadow-lg hover:shadow-2xl transition-all hover:scale-[1.02] relative overflow-hidden group`}
+                } shadow-lg hover:shadow-2xl transition-all relative overflow-hidden group cursor-pointer`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-r ${exp.color} opacity-0 group-hover:opacity-20 transition-opacity rounded-3xl`} />
+              {/* Mevcut hover gradyanınızı daha belirgin hale getirdim */}
+              <div className={`absolute inset-0 bg-gradient-to-r ${exp.color} opacity-0 group-hover:opacity-30 transition-opacity rounded-3xl`} />
 
               <div className="relative z-10">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
@@ -96,7 +128,7 @@ export default function Experience({ language, darkMode }: ExperienceProps) {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

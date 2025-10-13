@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Palette, Database, GitBranch, Bot } from 'lucide-react';
@@ -11,17 +11,44 @@ interface SkillsProps {
   darkMode: boolean;
 }
 
+// Ana container (grid) için varyantlar (Kartların sıralı görünmesi için)
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Kartlar arasında 0.1 saniye gecikme
+    },
+  },
+};
+
+// Her bir beceri kartı için varyantlar (Hafif 3D giriş)
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30, rotateX: -5 }, // rotateX eklenerek 3D görünüm
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      type: 'spring',
+      damping: 15,
+      stiffness: 120,
+    },
+  },
+};
+
 export default function Skills({ language, darkMode }: SkillsProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const t = translations[language];
 
+  // ... (skillCategories array'i aynı kalır)
   const skillCategories = [
     {
       category: t.skills.categories.frontend,
       icon: Code2,
       color: 'text-purple-500',
-      skills: ['React', 'TypeScript', 'React Hook Form', 'Framer Motion', 'React Router', 'Next.js', 'Redux', 'Zustand','Zod'],
+      skills: ['React', 'TypeScript', 'React Hook Form', 'Framer Motion', 'React Router', 'Next.js', 'Redux', 'Zustand', 'Zod'],
     },
     {
       category: t.skills.categories.styling,
@@ -55,7 +82,7 @@ export default function Skills({ language, darkMode }: SkillsProps) {
         <motion.h2
           key={`skills-title-${language}`}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}} // Başlık animasyonu göründüğünde başlar
           transition={{ duration: 0.6 }}
           className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-purple-400 to-pink-400' : 'from-purple-600 to-pink-600'
             }`}
@@ -63,17 +90,23 @@ export default function Skills({ language, darkMode }: SkillsProps) {
           {t.skills.title}
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* KART GRİDİ - ANA CONTAINER */}
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"} // Görünür olduğunda başlat
+          variants={containerVariants}
+        >
           {skillCategories.map((category, idx) => {
             const Icon = category.icon;
             return (
               <motion.div
                 key={`${category.category}-${language}`}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                variants={cardVariants} // Kart varyantı
+                whileHover={{ scale: 1.08, rotateZ: 0.5 }} // Hafif dönüş ve büyüme efekti
+                transition={{ duration: 0.20, ease: "easeInOut" }}
                 className={`p-6 rounded-2xl backdrop-blur-sm ${darkMode ? 'bg-gray-800/50' : 'bg-white/60'
-                  } shadow-lg hover:shadow-xl transition-all hover:scale-105`}
+                  } shadow-lg hover:shadow-2xl transition-all`}
               >
                 <div className="flex items-center gap-2 mb-4">
                   <Icon className={`w-6 h-6 ${category.color}`} />
@@ -81,23 +114,30 @@ export default function Skills({ language, darkMode }: SkillsProps) {
                     {category.category}
                   </h3>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <motion.div
+                  className="flex flex-wrap gap-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ staggerChildren: 0.03, delay: 0.5 + idx * 0.1 }} // Karttan sonra gecikmeli başla
+                >
                   {category.skills.map((skill) => (
-                    <span
+                    <motion.span
                       key={skill}
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
                       className={`px-3 py-1 rounded-full text-sm ${darkMode
-                          ? 'bg-gray-700 text-gray-300'
-                          : 'bg-gradient-to-r from-purple-100 to-pink-100 text-gray-700'
+                        ? 'bg-gray-700 text-gray-300'
+                        : 'bg-gradient-to-r from-purple-100 to-pink-100 text-gray-700'
                         }`}
                     >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
-                </div>
+                </motion.div>
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

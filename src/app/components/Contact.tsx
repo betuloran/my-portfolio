@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'; 
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Mail, Linkedin, Phone, Github } from 'lucide-react';
@@ -11,9 +11,35 @@ interface ContactProps {
   darkMode: boolean;
 }
 
+// Ana container (grid) için varyantlar (Kartların sıralı görünmesi için)
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Kartlar arasında 0.1 saniye gecikme
+    },
+  },
+};
+
+// Her bir iletişim kartı için varyantlar (Yumuşak giriş)
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      damping: 15,
+      stiffness: 120,
+    },
+  },
+};
+
 export default function Contact({ language, darkMode }: ContactProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  // Animasyonların sadece görünür olduğunda çalışması için useInView kullanılır
+  const isInView = useInView(ref, { once: true, amount: 0.3 }); 
   const t = translations[language];
 
   const contactMethods = [
@@ -53,7 +79,7 @@ export default function Contact({ language, darkMode }: ContactProps) {
         <motion.h2
           key={`title-${language}`}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}} // Başlık animasyonu göründüğünde başlar
           transition={{ duration: 0.6 }}
           className={`text-4xl md:text-5xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-purple-400 to-pink-400' : 'from-purple-600 to-pink-600'
             }`}
@@ -64,15 +90,21 @@ export default function Contact({ language, darkMode }: ContactProps) {
         <motion.p
           key={`subtitle-${language}`}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}} // Alt başlık animasyonu göründüğünde başlar
           transition={{ duration: 0.6, delay: 0.2 }}
           className={`text-xl mb-12 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}
         >
           {t.contact.subtitle}
         </motion.p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {contactMethods.map((method, idx) => {
+        {/* KART GRİDİ - SIRALI GİRİŞ */}
+        <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"} // Görünür olduğunda başlat
+            variants={containerVariants}
+        >
+          {contactMethods.map((method) => {
             const Icon = method.icon;
             return (
               <motion.a
@@ -80,11 +112,11 @@ export default function Contact({ language, darkMode }: ContactProps) {
                 href={method.href}
                 target={method.href.startsWith('http') ? '_blank' : undefined}
                 rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 + idx * 0.1 }}
+                variants={itemVariants} // Yaylanma varyantı
+                whileHover={{ scale: 1.05, rotateZ: -1 }} //dönüş hızı
+                transition={{ duration: 0.15, ease: "easeInOut" }}
                 className={`p-6 rounded-2xl backdrop-blur-sm ${darkMode ? 'bg-gray-800/50' : 'bg-white/60'
-                  } shadow-lg hover:shadow-2xl transition-all hover:scale-105 group`}
+                  } shadow-lg hover:shadow-2xl transition-all group`}
               >
                 <Icon className={`w-12 h-12 mx-auto mb-4 ${method.color} group-hover:scale-110 transition-transform`} />
                 <p className={`font-semibold mb-1 ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}>
@@ -96,7 +128,7 @@ export default function Contact({ language, darkMode }: ContactProps) {
               </motion.a>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

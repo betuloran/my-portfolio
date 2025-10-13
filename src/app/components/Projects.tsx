@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Github, ExternalLink, Clock } from 'lucide-react';
@@ -12,18 +12,55 @@ interface ProjectsProps {
   darkMode: boolean;
 }
 
+// Ana container (grid) için varyantlar (Proje kartlarının sıralı görünmesi için)
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+// Her bir proje kartı için varyantlar (Hafif 3D giriş)
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 50, rotateX: -5 }, // 3D görünüm
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      type: 'spring',
+      damping: 12,
+      stiffness: 100,
+    },
+  },
+};
+
+// Tech badge'ler için varyantlar (Hızlı sıçrama)
+const badgeVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.3 }
+  },
+};
+
+
 export default function Projects({ language, darkMode }: ProjectsProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const t = translations[language];
-  
+
   return (
     <section id="projects" ref={ref} className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           key={`projects-title-${language}`}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-purple-400 to-pink-400' : 'from-purple-600 to-pink-600'
             }`}
@@ -31,13 +68,19 @@ export default function Projects({ language, darkMode }: ProjectsProps) {
           {t.projects.title}
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
+        {/* KART GRİDİ - ANA CONTAINER */}
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          ref={ref}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={containerVariants}
+        >
+          {projects.map((project) => (
+            // HER BİR PROJE KARTI
             <motion.div
               key={`${project.title}-${language}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}} // useInView animasyonu
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              variants={cardVariants}
               className={`p-6 rounded-3xl backdrop-blur-sm ${darkMode ? 'bg-gray-800/50' : 'bg-white/60'
                 } shadow-lg hover:shadow-2xl transition-all hover:scale-105 group flex flex-col`}
             >
@@ -48,10 +91,15 @@ export default function Projects({ language, darkMode }: ProjectsProps) {
 
                 {/* "In Progress" Badge */}
                 {project.inProgress && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-semibold rounded-full shadow-lg whitespace-nowrap flex-shrink-0">
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.5, type: 'spring' }}
+                    className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-semibold rounded-full shadow-lg whitespace-nowrap flex-shrink-0"
+                  >
                     <Clock className="w-3 h-3" />
                     {language === 'tr' ? 'Devam Ediyor' : 'In Progress'}
-                  </span>
+                  </motion.span>
                 )}
               </div>
 
@@ -59,25 +107,33 @@ export default function Projects({ language, darkMode }: ProjectsProps) {
                 {language === 'tr' ? project.descriptionTr : project.descriptionEn}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-6">
+              {/* TECH BADGES - Sıralı Giriş için Staggering */}
+              <motion.div
+                className="flex flex-wrap gap-2 mb-6"
+                initial="hidden" // Kart göründükten sonra
+                animate="visible"
+                transition={{ staggerChildren: 0.05 }}
+              >
                 {project.technologies.map((tech) => (
-                  <span
+                  <motion.span
                     key={tech}
+                    variants={badgeVariants}
                     className={`px-3 py-1 rounded-full text-xs ${darkMode
-                        ? 'bg-gray-700 text-gray-300'
-                        : 'bg-gradient-to-r from-purple-100 to-pink-100 text-gray-700'
+                      ? 'bg-gray-700 text-gray-300'
+                      : 'bg-gradient-to-r from-purple-100 to-pink-100 text-gray-700'
                       }`}
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Butonlar */}
               {(project.github || project.live) && (
                 <div className="flex gap-3 flex-wrap mt-auto">
                   {project.github && (
-                    <a 
+                    <motion.a
+                      whileHover={{ scale: 1.05 }}
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -85,11 +141,12 @@ export default function Projects({ language, darkMode }: ProjectsProps) {
                     >
                       <Github className="w-4 h-4" />
                       {t.projects.viewGithub}
-                    </a>
+                    </motion.a>
                   )}
 
                   {project.live && (
-                    <a 
+                    <motion.a
+                      whileHover={{ scale: 1.05 }}
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -97,13 +154,13 @@ export default function Projects({ language, darkMode }: ProjectsProps) {
                     >
                       <ExternalLink className="w-4 h-4" />
                       {t.projects.viewLive}
-                    </a>
+                    </motion.a>
                   )}
                 </div>
               )}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
