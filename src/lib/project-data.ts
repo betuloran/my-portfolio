@@ -29,7 +29,7 @@ export const projects: Project[] = [
     title: 'Personal Portfolio',
     descriptionEn: 'A modern personal portfolio website was developed to showcase projects and contact information. Built with Next.js and responsive design principles to deliver a fast, user-friendly experience.',
     descriptionTr: 'Kişisel projeleri ve iletişim bilgilerini sergilemek amacıyla modern bir portföy sitesi geliştirildi. Next.js altyapısı ve responsive tasarım ilkeleriyle performanslı, kullanıcı dostu bir arayüz oluşturuldu.',
-    technologies: ['React', 'Next.js', 'TypeScript'],
+    technologies: ['React', 'Next.js', 'TypeScript',' Tailwind CSS', 'Framer Motion'],
      github: 'https://github.com/betuloran/my-portfolio',
     live: 'https://my-portfolio-sigma-wine-87.vercel.app/',
   },
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: 'Feasta',
     descriptionEn: 'A responsive food ordering platform with user authentication, restaurant listings, and order management. Implemented using NextAuth and Redux Toolkit for seamless user experience.',
     descriptionTr: 'Kullanıcı kimlik doğrulama, restoran listeleme ve sipariş yönetimi içeren duyarlı bir yemek sipariş platformu. Sorunsuz kullanıcı deneyimi için NextAuth ve Redux Toolkit kullanılarak geliştirildi.',
-    technologies: ['React', 'Next.js', 'NextAuth', 'Redux Toolkit', 'TypeScript'],
+    technologies: ['React', 'Next.js', 'Tailwind CSS', 'NextAuth', 'Redux', 'Redux Toolkit'],
     github: 'https://github.com/betuloran/feasta-app',
     live: 'https://feasta-app.vercel.app/', 
   },
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     title: 'Pviser',
     descriptionEn: 'Internal workspace system with reusable UI components. Built with the frontend team for API integration and participated in code review processes.',
     descriptionTr: 'Yeniden kullanılabilir UI komponentleri ile dahili çalışma alanı sistemi. API entegrasyonu için frontend ekibiyle geliştirildi ve kod inceleme süreçlerine katıldı.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'ShadCN', 'Material UI']
+    technologies: ['React', 'TypeScript','JavaScript','Tailwind CSS', 'ShadCN', 'Material UI','Zod', 'React Hook Form','React Router'],
   },
    
 ];
