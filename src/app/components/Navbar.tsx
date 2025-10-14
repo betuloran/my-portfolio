@@ -85,22 +85,14 @@ export default function Navbar({ language, setLanguage, darkMode, setDarkMode }:
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? `${darkMode ? 'bg-gray-900/95' : 'bg-white/95'} backdrop-blur-md shadow-lg`
-        : 'bg-transparent'
+      ? `${darkMode ? 'bg-gray-900/95' : 'bg-white/95'} backdrop-blur-md shadow-lg`
+      : 'bg-transparent'
       }`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#hero"
-            onClick={(e) => handleLinkClick(e, 'hero')} 
-            className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-purple-400 to-pink-400' : 'from-purple-600 to-pink-600'
-              }`}>
-            BO
-          </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10"> 
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => {
               // Aktif link kontrolü
               const isActive = activeSection === link.id;
@@ -144,8 +136,8 @@ export default function Navbar({ language, setLanguage, darkMode, setDarkMode }:
             <button
               onClick={() => setLanguage(language === 'en' ? 'tr' : 'en')}
               className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${darkMode
-                  ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                  : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+                ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
                 }`}
             >
               {language === 'en' ? 'TR' : 'EN'}
@@ -154,8 +146,8 @@ export default function Navbar({ language, setLanguage, darkMode, setDarkMode }:
             <button
               onClick={() => setDarkMode(!darkMode)}
               className={`p-2 rounded-full transition-all ${darkMode
-                  ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700'
-                  : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+                ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700'
+                : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
                 }`}
             >
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
