@@ -90,26 +90,29 @@ export default function Navbar({ language, setLanguage, darkMode, setDarkMode }:
       }`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          {/* Logo */}
+          <a
+            href="#hero"
+            onClick={(e) => handleLinkClick(e, 'hero')}
+            className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${darkMode ? 'from-purple-400 to-pink-400' : 'from-purple-600 to-pink-600'
+              }`}>
+            BO
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => {
-              // Aktif link kontrolü
               const isActive = activeSection === link.id;
 
               return (
                 <a
                   key={link.id}
                   href={link.href}
-                  onClick={(e) => handleLinkClick(e, link.id)} // smooth scroll
+                  onClick={(e) => handleLinkClick(e, link.id)}
                   className={`relative transition-colors font-medium group text-md
-                    ${
-                    // Aktif Değilken Renkler
-                    darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-700 hover:text-purple-600'
+                    ${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-700 hover:text-purple-600'
                     }
-                    ${
-                    // Aktifken Vurgu Renkleri
-                    isActive ? (darkMode ? 'text-purple-400' : 'text-purple-600') : ''
+                    ${isActive ? (darkMode ? 'text-purple-400' : 'text-purple-600') : ''
                     }
                   `}
                 >
