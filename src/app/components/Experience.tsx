@@ -123,7 +123,7 @@ export default function Experience({ language, darkMode }: ExperienceProps) {
                   </span>
                 </div>
                 <ul className={`list-disc ml-6 mt-3 space-y-2 text-sm md:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                  {exp.description.map((item: string, index: number) => (
+                  {(Array.isArray(exp.description) ? exp.description : []).map((item: string, index: number) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
