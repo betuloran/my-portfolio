@@ -3,7 +3,7 @@
 import { motion, Variants } from 'framer-motion'; 
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Linkedin, Phone, Github } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 import { Language, translations } from '@/lib/translations';
 
 interface ContactProps {
@@ -64,13 +64,6 @@ export default function Contact({ language, darkMode }: ContactProps) {
       href: 'https://linkedin.com/in/betüloran',
       color: 'text-blue-500',
     },
-    {
-      icon: Phone,
-      label: t.contact.phone,
-      value: '506 147 2606',
-      href: 'tel:5061472606',
-      color: 'text-green-500',
-    },
   ];
 
   return (
@@ -97,12 +90,12 @@ export default function Contact({ language, darkMode }: ContactProps) {
           {t.contact.subtitle}
         </motion.p>
 
-        {/* KART GRİDİ - SIRALI GİRİŞ */}
-        <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"} // Görünür olduğunda başlat
-            variants={containerVariants}
+        {/* KART FLEX */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-6"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"} // Görünür olduğunda başlat
+          variants={containerVariants}
         >
           {contactMethods.map((method) => {
             const Icon = method.icon;
@@ -113,10 +106,9 @@ export default function Contact({ language, darkMode }: ContactProps) {
                 target={method.href.startsWith('http') ? '_blank' : undefined}
                 rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 variants={itemVariants} // Yaylanma varyantı
-                whileHover={{ scale: 1.05, rotateZ: -1 }} //dönüş hızı
+                whileHover={{ scale: 1.05, rotateZ: -1 }}
                 transition={{ duration: 0.15, ease: "easeInOut" }}
-                className={`p-6 rounded-2xl backdrop-blur-sm ${darkMode ? 'bg-gray-800/50' : 'bg-white/60'
-                  } shadow-lg hover:shadow-2xl transition-all group`}
+                className={`p-6 rounded-2xl backdrop-blur-sm ${darkMode ? 'bg-gray-800/50' : 'bg-white/60'} shadow-lg hover:shadow-2xl transition-all group`}
               >
                 <Icon className={`w-12 h-12 mx-auto mb-4 ${method.color} group-hover:scale-110 transition-transform`} />
                 <p className={`font-semibold mb-1 ${darkMode ? 'text-gray-200' : 'text-gray-800'}`}>
