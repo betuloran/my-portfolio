@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion'; 
+import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Language, translations } from '@/lib/translations';
@@ -97,7 +97,7 @@ export default function Experience({ language, darkMode }: ExperienceProps) {
           animate={isInView ? "visible" : "hidden"} // Görünür olduğunda başlat
           variants={containerVariants}
         >
-          {experiences.map((exp, idx) => (
+          {experiences.map((exp) => (
             <motion.div
               key={`${exp.id}-${language}`}
               variants={itemVariants} // Yeni yana kayma varyantı
@@ -122,9 +122,11 @@ export default function Experience({ language, darkMode }: ExperienceProps) {
                     {exp.period}
                   </span>
                 </div>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed`}>
-                  {exp.description}
-                </p>
+                <ul className={`list-disc ml-6 mt-3 space-y-2 text-sm md:text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                  {exp.description.map((item: string, index: number) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}

@@ -76,7 +76,7 @@ export default function Projects({ language, darkMode }: ProjectsProps) {
           {projects.map((project) => (
             // HER BİR PROJE KARTI
             <motion.div
-              key={`${project.title}-${language}`}
+              key={`project-card-${language}-${project.titleEn}`}
               variants={cardVariants}
               whileHover={{ scale: 1.03, rotateZ: 0.5 }}
               transition={{ duration: 0.15, ease: "easeInOut" }}
@@ -127,7 +127,7 @@ export default function Projects({ language, darkMode }: ProjectsProps) {
                 {/* Başlık ve Badge */}
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <h3 className={`text-2xl font-bold ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>
-                    {project.title}
+                    {language === 'tr' ? project.titleTr : project.titleEn}
                   </h3>
                   {project.inProgress && (
                     <motion.span
