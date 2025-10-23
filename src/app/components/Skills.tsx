@@ -72,7 +72,7 @@ export default function Skills({ language, darkMode }: SkillsProps) {
       category: t.skills.categories.aiml,
       icon: Bot,
       color: 'text-cyan-500',
-      skills: ['LangChain', 'OpenAI API', 'RAG Systems', 'Vector DB', 'Prompt Engineering', 'LangSmith'],
+      skills: ['LangChain', 'OpenAI API', 'GenAI', 'RAG Systems', 'Vector DB', 'Prompt Engineering', 'Python', 'Streamlit'],
     },
   ];
 
