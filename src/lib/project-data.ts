@@ -11,11 +11,12 @@ export interface Project {
 
 export const projects: Project[] = [
    {
-    title: 'AI-Powered RAG Chatbot',
-    descriptionEn: 'The RAG-based chatbot to be developed using a vector database and LangChain is a platform that enables users to engage in intelligent conversations based on documents.',
-    descriptionTr: 'Vector database ve LangChain kullanarak geliştirilecek RAG tabanlı chatbot, kullanıcıların dökümanları üzerinden akıllı sohbet edebileceği bir platformdur.',
-    technologies: ["LangChain", "OpenAI", "Vector DB", "React", "Next.js"],
-    inProgress: true,
+    title: 'TechPath Mentor',
+    descriptionEn: 'A RAG-based chatbot was created using a vector database and LangChain to provide personalized guidance to students in the IT field and those seeking a career change, delivering accurate and context-aware responses from selected local knowledge datasets.',
+    descriptionTr: 'Vector database ve LangChain kullanılarak BT alanındaki öğrenciler ve kariyer değişikliği yapmak isteyenlere kişiselleştirilmiş rehberlik sağlayan ve seçilmiş yerel bilgi veri setlerinden doğru ve bağlamı dikkate alan yanıtlar veren bir RAG tabanlı chatbot oluşturuldu.',
+    technologies: ["LangChain", "GenAI", "Vector DB", "Python","Streamlit"],
+    github:'https://github.com/betuloran/techpath-mentor',
+    inProgress: false,
   },
   {
     title: 'User Management System',
@@ -30,14 +31,16 @@ export const projects: Project[] = [
     descriptionEn: 'A modern personal portfolio website was developed to showcase projects and contact information. Built with Next.js and responsive design principles to deliver a fast, user-friendly experience.',
     descriptionTr: 'Kişisel projeleri ve iletişim bilgilerini sergilemek amacıyla modern bir portföy sitesi geliştirildi. Next.js altyapısı ve responsive tasarım ilkeleriyle performanslı, kullanıcı dostu bir arayüz oluşturuldu.',
     technologies: ['React', 'Next.js', 'TypeScript',' Tailwind CSS', 'Framer Motion'],
-     github: 'https://github.com/betuloran/my-portfolio',
+    github: 'https://github.com/betuloran/my-portfolio',
     live: 'https://my-portfolio-sigma-wine-87.vercel.app/',
+    inProgress: false,
   },
   {
     title: 'Automation Flow Demo Project',
     descriptionEn: 'Experimented with Microsoft Power Automate and Power Apps to create a simple workflow automating task submissions from a SharePoint list.',
     descriptionTr: 'SharePoint listesinden görev gönderimlerini otomatikleştiren basit bir iş akışı oluşturmak için Microsoft Power Automate ve Power Apps ile denemeler yapıldı.',
     technologies: ['Power Apps', 'Power Automate', 'SharePoint', 'Dataverse'],
+    inProgress: false,
   },
     {
     title: 'Feasta',
@@ -46,12 +49,14 @@ export const projects: Project[] = [
     technologies: ['React', 'Next.js', 'Tailwind CSS', 'NextAuth', 'Redux', 'Redux Toolkit'],
     github: 'https://github.com/betuloran/feasta-app',
     live: 'https://feasta-app.vercel.app/', 
+    inProgress: false,
   },
   {
     title: 'Pviser',
     descriptionEn: 'Internal workspace system with reusable UI components. Built with the frontend team for API integration and participated in code review processes.',
     descriptionTr: 'Yeniden kullanılabilir UI komponentleri ile dahili çalışma alanı sistemi. API entegrasyonu için frontend ekibiyle geliştirildi ve kod inceleme süreçlerine katıldı.',
     technologies: ['React', 'TypeScript','JavaScript','Tailwind CSS', 'ShadCN', 'Material UI','Zod', 'React Hook Form','React Router'],
+    inProgress: false,
   },
    
 ];
