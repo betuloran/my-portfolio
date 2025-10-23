@@ -1,62 +1,62 @@
 export interface Project {
-  title: string;
+  titleTr: string;
+  titleEn: string;
   descriptionEn: string;
   descriptionTr: string;
   technologies: string[];
   github?: string;
   live?: string;
   inProgress?: boolean;
-
 }
 
 export const projects: Project[] = [
-   {
-    title: 'TechPath Mentor',
-    descriptionEn: 'A RAG-based chatbot was created using a vector database and LangChain to provide personalized guidance to students in the IT field and those seeking a career change, delivering accurate and context-aware responses from selected local knowledge datasets.',
-    descriptionTr: 'Vector database ve LangChain kullanılarak BT alanındaki öğrenciler ve kariyer değişikliği yapmak isteyenlere kişiselleştirilmiş rehberlik sağlayan ve seçilmiş yerel bilgi veri setlerinden doğru ve bağlamı dikkate alan yanıtlar veren bir RAG tabanlı chatbot oluşturuldu.',
-    technologies: ["LangChain", "GenAI", "Vector DB", "Python","Streamlit"],
-    github:'https://github.com/betuloran/techpath-mentor',
-    inProgress: false,
+  {
+    titleEn: 'TechPath Mentor',
+    titleTr: 'TechPath Mentor',
+    descriptionEn: 'I developed a RAG-based chatbot using LangChain and a vector database to provide personalized guidance for students in tech and individuals exploring a career change. The system delivers accurate and context-aware responses using selected local knowledge datasets, helping users get relevant mentorship-like feedback in real time.',
+    descriptionTr: 'LangChain ve vektör veritabanını kullanarak, teknoloji alanında okuyan öğrencilere ve kariyer değişikliği düşünen kişilere kişiselleştirilmiş rehberlik sağlamak için RAG tabanlı bir chatbot geliştirdim. Sistem, seçilen yerel bilgi veri kümelerini kullanarak doğru ve bağlam farkında yanıtlar sunarak, kullanıcıların gerçek zamanlı olarak ilgili mentorluk benzeri geri bildirimler almasına yardımcı oluyor.',
+    technologies: ["LangChain", "GenAI", "Vector DB", "Python", "Streamlit"],
+    github: 'https://github.com/betuloran/techpath-mentor',
   },
   {
-    title: 'User Management System',
-    descriptionEn: 'Full-stack user and content management platform with authentication system, database integration, and modern UI design. Built with React frontend and Node.js backend.',
-    descriptionTr: 'Kimlik doğrulama sistemi, veritabanı entegrasyonu ve modern UI tasarımı ile full-stack kullanıcı ve içerik yönetim platformu. React frontend ve Node.js backend ile geliştirildi.',
+    titleEn: 'User Management System',
+    titleTr: 'Kullanıcı Yönetim Sistemi',
+    descriptionEn: 'I developed a comprehensive user and content management platform that includes identity verification, database integration, and a clean, modern user interface. The project uses React on the front end and Node.js on the back end, focusing on scalability and seamless data flow.',
+    descriptionTr: 'Kimlik doğrulama, veritabanı entegrasyonu ve modern bir kullanıcı arayüzü içeren kapsamlı bir kullanıcı ve içerik yönetim platformu geliştirdim. Proje, React ve Node.js kullanarak ölçeklenebilirlik ve kesintisiz veri akışına odaklanıyor.',
     technologies: ['React', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
     github: 'https://github.com/betuloran/fullstack-user-management-app',
     inProgress: true,
   },
-   {
-    title: 'Personal Portfolio',
-    descriptionEn: 'A modern personal portfolio website was developed to showcase projects and contact information. Built with Next.js and responsive design principles to deliver a fast, user-friendly experience.',
-    descriptionTr: 'Kişisel projeleri ve iletişim bilgilerini sergilemek amacıyla modern bir portföy sitesi geliştirildi. Next.js altyapısı ve responsive tasarım ilkeleriyle performanslı, kullanıcı dostu bir arayüz oluşturuldu.',
-    technologies: ['React', 'Next.js', 'TypeScript',' Tailwind CSS', 'Framer Motion'],
+  {
+    titleEn: 'Personal Portfolio',
+    titleTr: 'Kişisel Portföy',
+    descriptionEn: 'I designed and developed my personal portfolio website to showcase my projects, experience, and contact information. It’s built with Next.js and designed with responsive principles to ensure fast performance and a user-friendly browsing experience across all devices.',
+    descriptionTr: 'Projelerimi, deneyimlerimi ve iletişim bilgilerimi sergilemek için kişisel portföy web sitemi tasarladım ve geliştirdim. Next.js ile oluşturulan bu site, tüm cihazlarda hızlı ve kullanıcı dostu bir deneyim sağlamak için duyarlı tasarım ilkelerine göre geliştirildi.',
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     github: 'https://github.com/betuloran/my-portfolio',
     live: 'https://my-portfolio-sigma-wine-87.vercel.app/',
-    inProgress: false,
   },
   {
-    title: 'Automation Flow Demo Project',
-    descriptionEn: 'Experimented with Microsoft Power Automate and Power Apps to create a simple workflow automating task submissions from a SharePoint list.',
-    descriptionTr: 'SharePoint listesinden görev gönderimlerini otomatikleştiren basit bir iş akışı oluşturmak için Microsoft Power Automate ve Power Apps ile denemeler yapıldı.',
+    titleEn: 'Automation Flow Demo Project',
+    titleTr: 'Otomasyon Akış Demo Projesi',
+    descriptionEn: 'I experimented with Microsoft Power Automate and Power Apps to create a simple workflow that automates task submissions from a SharePoint list. This project helped me understand the fundamentals of workflow automation and low-code business solutions.',
+    descriptionTr: 'SharePoint listesinden görev gönderimlerini otomatikleştiren basit bir iş akışı oluşturmak için Microsoft Power Automate ve Power Apps’i denedim. Bu proje, iş akışı otomasyonu ve düşük kodlu iş çözümlerinin temellerini anlamama yardımcı oldu.',
     technologies: ['Power Apps', 'Power Automate', 'SharePoint', 'Dataverse'],
-    inProgress: false,
   },
-    {
-    title: 'Feasta',
-    descriptionEn: 'A responsive food ordering platform with user authentication, restaurant listings, and order management. Implemented using NextAuth and Redux Toolkit for seamless user experience.',
-    descriptionTr: 'Kullanıcı kimlik doğrulama, restoran listeleme ve sipariş yönetimi içeren duyarlı bir yemek sipariş platformu. Sorunsuz kullanıcı deneyimi için NextAuth ve Redux Toolkit kullanılarak geliştirildi.',
+  {
+    titleEn: 'Feasta',
+    titleTr: 'Feasta',
+    descriptionEn: 'Feasta, a responsive food ordering platform featuring user authentication, restaurant listings, and order management capabilities, was developed using NextAuth for secure login and Redux Toolkit for seamless state management, delivering a smooth and intuitive user experience.',
+    descriptionTr: 'Feasta, kullanıcı kimlik doğrulaması, restoran listeleri ve sipariş yönetimi özelliklerine sahip, duyarlı bir yemek sipariş platformudur. Güvenli giriş için NextAuth ve durum yönetimi için Redux Toolkit kullanarak sezgisel bir kullanıcı deneyimi sunar.',
     technologies: ['React', 'Next.js', 'Tailwind CSS', 'NextAuth', 'Redux', 'Redux Toolkit'],
     github: 'https://github.com/betuloran/feasta-app',
-    live: 'https://feasta-app.vercel.app/', 
-    inProgress: false,
+    live: 'https://feasta-app.vercel.app/',
   },
   {
-    title: 'Pviser',
-    descriptionEn: 'Internal workspace system with reusable UI components. Built with the frontend team for API integration and participated in code review processes.',
-    descriptionTr: 'Yeniden kullanılabilir UI komponentleri ile dahili çalışma alanı sistemi. API entegrasyonu için frontend ekibiyle geliştirildi ve kod inceleme süreçlerine katıldı.',
-    technologies: ['React', 'TypeScript','JavaScript','Tailwind CSS', 'ShadCN', 'Material UI','Zod', 'React Hook Form','React Router'],
-    inProgress: false,
+    titleEn: 'Pviser',
+    titleTr: 'Pviser',
+    descriptionEn: 'As part of the frontend team at mfatech, I contributed to the development of the Pviser internal workspace system. I created reusable UI components, worked on API integrations, and participated in code reviews to maintain code quality and consistency across the project.',
+    descriptionTr: 'mfatech’in ön uç ekibinin bir parçası olarak, Pviser iç çalışma alanı sisteminin geliştirilmesine katkıda bulundum. Yeniden kullanılabilir bileşenler oluşturdum, API entegrasyonları yaptım ve kod incelemeleriyle proje genelinde tutarlılığı sağladım.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'ShadCN', 'Material UI', 'Zod', 'React Hook Form', 'React Router'],
   },
-   
 ];
