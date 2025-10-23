@@ -10,7 +10,7 @@ interface ExperienceProps {
   darkMode: boolean;
 }
 
-// YENİ: Ana container için varyantlar
+// Ana container için varyantlar
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -21,7 +21,7 @@ const containerVariants: Variants = {
   },
 };
 
-// YENİ: Her bir deneyim kartı için varyantlar (Yaylanarak yana kayma)
+// Her bir deneyim kartı için varyantlar (Yaylanarak yana kayma)
 const itemVariants: Variants = {
   hidden: { opacity: 0, x: -50 },
   visible: {
