@@ -35,25 +35,25 @@ export interface Translations {
       mfatech: {
         company?: string;
         role: string;
-        description: string;
+        description: string[];
         period?: string;
       };
       codveda: {
         company?: string;
         role: string;
-        description: string;
+        description: string[];
         period?: string;
       };
       vbt: {
         company?: string;
         role: string;
-        description: string;
+        description: string[];
         period?: string;
       };
       bt: {
         company?: string;
         role: string;
-        description: string;
+        description: string[];
         period?: string;
       };
     };
@@ -107,28 +107,44 @@ export const translations: Record<Language, Translations> = {
     experience: {
       title: 'Experience',
       positions: {
-        codveda: {
-          company: 'Codveda Technologies',
-          role: 'Full Stack Developer Intern',
-          description: 'Built a comprehensive User Management System using React, TypeScript, and Node.js. Implemented JWT-based authentication with role-based access control and developed RESTful APIs with Express.js and MongoDB.',
-          period: 'Jun 2025 – Nov 2025',
-        },
         mfatech: {
           company: 'mfatech',
           role: 'Frontend Developer',
-          description: 'Contributed to building a modern corporate workspace application. Developed reusable React components with TypeScript, integrated REST APIs, and participated in Agile development using Scrum methodology.',
+          description: [
+            'Developed modern and responsive interfaces for the Pviser corporate workspace using React and TypeScript.',
+            'Built reusable components and integrated RESTful APIs for efficient data flow and performance.',
+            'Improved UI/UX design and usability based on user feedback in an Agile Scrum environment.',
+          ],
           period: 'Nov 2024 – Jun 2025',
+        },
+        codveda: {
+          company: 'Codveda Technologies',
+          role: 'Full Stack Developer Intern',
+          description: [
+            'Developed a User Management System using React, TypeScript, Node.js, and MongoDB.',
+            'Implemented JWT-based authentication and role-based access control.',
+            'Built RESTful APIs with Express.js for CRUD operations and optimized backend performance.',
+          ],
+          period: 'Aug 2025 – Sep 2025',
         },
         vbt: {
           company: 'VBT Software Inc.',
-          role: 'Software Engineer Intern',
-          description: 'Participated in frontend development and mobile application design projects. Developed user experience-focused solutions and created cross-device compatible solutions using responsive design principles.',
+          role: 'Software Development Engineer Intern',
+          description: [
+            'Completed a 2-month technical training program on HTML, CSS, SCSS, JavaScript, and Angular.',
+            'Gained insights into software development workflows and corporate IT practices.',
+            'Developed a Flutter project and improved practical skills in SQL and frontend technologies.',
+          ],
           period: 'Jun 2024 – Aug 2024',
         },
         bt: {
           company: 'Simav Municipality IT Department',
-          role: 'Hardware Engineer Intern',
-          description: 'Worked on various IT projects, gaining hands-on experience in system maintenance, network management, and user support. Assisted in optimizing internal processes and improving overall IT infrastructure.',
+          role: 'Hardware Development Engineer Intern',
+          description: [
+            'Provided technical support in network configuration, firewalls, and server systems setup.',
+            'Applied OSI and TCP/IP concepts to real-world IT operations.',
+            'Strengthened understanding of hardware systems and network security through hands-on practice.',
+          ],
           period: 'Jul 2023 – Aug 2023',
         },
       },
@@ -136,18 +152,20 @@ export const translations: Record<Language, Translations> = {
     projects: {
       title: 'Featured Projects',
       viewGithub: 'View on GitHub',
-       viewLive: 'View Live',
+      viewLive: 'View Live',
     },
-   contact: {
-  title: "Let's Connect!",
-  subtitle: "I'm always excited to collaborate on interesting projects or discuss new opportunities.",
-  email: 'Email',
-  phone: 'Phone',
-},
+    contact: {
+      title: "Let's Connect!",
+      subtitle:
+        "I'm always excited to collaborate on interesting projects or discuss new opportunities.",
+      email: 'Email',
+      phone: 'Phone',
+    },
     footer: {
       text: '© 2025 Betül Oran. Built with Next.js & Tailwind CSS.',
     },
   },
+
   tr: {
     nav: {
       about: 'Hakkımda',
@@ -180,28 +198,44 @@ export const translations: Record<Language, Translations> = {
     experience: {
       title: 'Deneyim',
       positions: {
-        codveda: {
-          company: 'Codveda Technologies',
-          role: 'Full Stack Geliştirici Stajyeri',
-          description: 'React, TypeScript ve Node.js kullanarak kapsamlı bir Kullanıcı Yönetim Sistemi oluşturdu. Rol tabanlı erişim kontrolüyle JWT tabanlı kimlik doğrulamayı uyguladı ve Express.js ve MongoDB ile RESTful API\'leri geliştirdi.',
-          period: 'Haz 2025 – Kas 2025',
-        },
         mfatech: {
           company: 'mfatech',
           role: 'Frontend Geliştirici',
-          description: 'Modern bir kurumsal çalışma alanı uygulamasının oluşturulmasına katkıda bulundu. TypeScript ile yeniden kullanılabilir React bileşenleri geliştirdi, REST API\'lerini entegre etti ve Scrum metodolojisini kullanarak çevik geliştirmeye katıldı.',
+          description: [
+            'React ve TypeScript kullanarak Pviser kurumsal çalışma alanı için modern ve duyarlı arayüzler geliştirdim.',
+            'Yeniden kullanılabilir bileşenler oluşturarak RESTful API’leri entegre ettim.',
+            'Kullanıcı geri bildirimlerine göre UI/UX iyileştirmeleri yaptım ve çevik Scrum ortamında çalıştım.',
+          ],
           period: 'Kas 2024 – Haz 2025',
         },
+        codveda: {
+          company: 'Codveda Technologies',
+          role: 'Full Stack Geliştirici Stajyeri',
+          description: [
+            'React, TypeScript, Node.js ve MongoDB kullanarak bir Kullanıcı Yönetim Sistemi geliştirdim.',
+            'JWT tabanlı kimlik doğrulama ve rol tabanlı erişim kontrolü uyguladım.',
+            'Express.js ile RESTful API’ler oluşturarak performansı optimize ettim.',
+          ],
+          period: 'Ağu 2025 – Eyl 2025',
+        },
         vbt: {
-          company: 'VBT Yazılım A.Ş',
+          company: 'VBT Yazılım A.Ş.',
           role: 'Yazılım Mühendisi Stajyeri',
-          description: 'Önyüz geliştirme ve mobil uygulama tasarım projelerinde yer aldı. Kullanıcı deneyimi odaklı çözümler geliştirdi ve duyarlı tasarım prensiplerini kullanarak cihazlar arası uyumlu çözümler oluşturdu.',
+          description: [
+            'HTML, CSS, SCSS, JavaScript ve Angular konularında 2 aylık teknik eğitim programını tamamladım.',
+            'Yazılım geliştirme süreçleri ve kurumsal IT pratikleri hakkında bilgiler edindim.',
+            'Flutter projesi geliştirerek SQL ve frontend teknolojilerinde uygulamalı deneyim kazandım.',
+          ],
           period: 'Haz 2024 – Ağu 2024',
         },
         bt: {
-          company: 'Simav Belediyesi Bilgi İşlem Daire Başkanlığı',
+          company: 'Simav Belediyesi Bilgi İşlem Departmanı',
           role: 'Donanım Mühendisi Stajyeri',
-          description: 'Çeşitli BT projelerinde görev alınarak sistem bakımı, ağ yönetimi ve kullanıcı desteği konularında uygulamalı deneyim kazanıldı. Dahili süreçlerin optimize edilmesine ve genel BT altyapısının iyileştirilmesine katkı sağlandı.',
+          description: [
+            'Ağ yapılandırması, güvenlik duvarı kurulumu ve sunucu sistemlerinde teknik destek sağladım.',
+            'OSI ve TCP/IP kavramlarını gerçek BT operasyonlarında uyguladım.',
+            'Donanım sistemleri ve ağ güvenliği konularında uygulamalı deneyim kazandım.',
+          ],
           period: 'Tem 2023 – Ağu 2023',
         },
       },
@@ -209,14 +243,15 @@ export const translations: Record<Language, Translations> = {
     projects: {
       title: 'Öne Çıkan Projeler',
       viewGithub: "GitHub'da Görüntüle",
-       viewLive: 'Canlı Görüntüle',
+      viewLive: 'Canlı Görüntüle',
     },
-   contact: {
-  title: 'İletişime Geçelim!',
-  subtitle: 'İlginç projeler üzerinde işbirliği yapmak veya yeni fırsatları tartışmak için her zaman heyecanlıyım.',
-  email: 'E-posta',
-  phone: 'Telefon',
-},
+    contact: {
+      title: 'İletişime Geçelim!',
+      subtitle:
+        'İlginç projeler üzerinde işbirliği yapmak veya yeni fırsatları tartışmak için her zaman heyecanlıyım.',
+      email: 'E-posta',
+      phone: 'Telefon',
+    },
     footer: {
       text: '© 2025 Betül Oran. Next.js & Tailwind CSS ile oluşturuldu.',
     },
