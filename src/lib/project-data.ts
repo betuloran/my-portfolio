@@ -17,6 +17,7 @@ export const projects: Project[] = [
     descriptionTr: 'LangChain ve vektör veritabanını kullanarak, teknoloji alanında okuyan öğrencilere ve kariyer değişikliği düşünen kişilere kişiselleştirilmiş rehberlik sağlamak için RAG tabanlı bir chatbot geliştirdim. Sistem, seçilen yerel bilgi veri kümelerini kullanarak doğru ve bağlam farkında yanıtlar sunarak, kullanıcıların gerçek zamanlı olarak ilgili mentorluk benzeri geri bildirimler almasına yardımcı oluyor.',
     technologies: ["LangChain", "GenAI", "Vector DB", "Python", "Streamlit"],
     github: 'https://github.com/betuloran/techpath-mentor',
+    live: 'https://betuloran-techpath-mentor-app-nyvkr2.streamlit.app/',
   },
   {
     titleEn: 'User Management System',
